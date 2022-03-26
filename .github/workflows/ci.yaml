@@ -1,0 +1,17 @@
+name: Check new content
+on:
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Kubeval
+        uses: "brpaz/gh-action-kubeval@v1.0.1"
+        with:
+         files: "src"
+         github_token: "${{ secrets.GITHUB_TOKEN }}"
