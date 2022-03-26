@@ -10,6 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: fugue/regula-action@v2.5.0
+        with:
+          input_type: k8s
+          input_path: | 
+              src/*.yml
+              src/*.yaml
+             
       - name: Kubeval
         uses: "brpaz/gh-action-kubeval@v1.0.1"
         with:
