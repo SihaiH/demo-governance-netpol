@@ -13,9 +13,7 @@ jobs:
       - uses: fugue/regula-action@v2.5.0
         with:
           input_type: k8s
-          input_path: | 
-              src/*.yml
-              src/*.yaml
+          input_path: src
              
       - name: Kubeval
         uses: "brpaz/gh-action-kubeval@v1.0.1"
